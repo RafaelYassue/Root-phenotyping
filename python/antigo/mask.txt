@@ -107,32 +107,3 @@ plt.imshow(chull, cmap=plt.cm.gray, interpolation='nearest')
 
 fig.savefig('plot.png')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
