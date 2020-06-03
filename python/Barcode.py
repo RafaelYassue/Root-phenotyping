@@ -4,7 +4,7 @@ import os as os
 import cv2 as cv2
 ################
 
-im_dir = ("G:\\My Drive\\doutorado\\projeto\\dados\\imagens\\exp01\\raizes\\100NIKON")  
+im_dir = ("C:\\Users\\rafae\\Desktop\\100NIKON - Copy")  
 os.chdir(im_dir)
 imgs = sorted(os.listdir(im_dir))
 
@@ -24,11 +24,10 @@ for i in range(len(plotid)):
     else: 
         plotid2.append(plotid[i][0].data)
 
-#Renaming pictures
-for i in range(1,len(plotid)):
-    if plotid[i]==[]:
-        print(i)
+for i in range(1,len(plotid2)):
+    if plotid2[i]==[]:
+            print("no code")
     else:
-       os.rename( imgs[i], plotid2[i])
-
-        
+           os.rename( imgs[i], plotid2[i])
+       
+#img_list = [v for v in img_list if v.endswith('.JPG')]
