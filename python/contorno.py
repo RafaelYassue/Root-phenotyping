@@ -5,11 +5,13 @@ Created on Thu Jun  4 08:49:52 2020
 @author: rafae
 """
 
-
 import cv2
 import numpy as np
 import imutils
 import matplotlib.pyplot as plt
+
+
+
 
 imA=cv2.imread("G:\\My Drive\\doutorado\\projeto\\dados\\imagens\\exp01\\raizes\\100NIKON\\certo\\E1_B_1")
 imA = imA[110:3000, 450:3025] #Cropping image 
@@ -33,8 +35,12 @@ cv2.circle(image, extRight, 50, (100, 10, 55), -1)
 cv2.circle(image, extTop, 50, (100, 10, 55), -1)
 cv2.circle(image, extBot, 50, (100, 10, 55), -1)
 
-plt.imshow(image)
 
-print(extTop)
+plt.imshow(image2)
+
 cv2.imshow('image', image)
 cv2.waitKey()
+
+image2=image[1:1000,1:1000]
+count = (image2 == 255).sum()
+count

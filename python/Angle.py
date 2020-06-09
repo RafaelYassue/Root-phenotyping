@@ -1,7 +1,17 @@
-import math
-def getAngle(a, b, c):
-    ang = math.degrees(math.atan2(c[1] - b[1], c[0] - b[0]) - math.atan2(a[1] - b[1], a[0] - b[0]))
-    return ang + 360 if ang < 0 else ang
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun  9 11:09:55 2020
+
+@author: rafae
+"""
+
+def getAngle(Top, Left, Right):
+    a=math.sqrt((Top[1]-Left[0])**2 +(Left[1]-Top[0])**2)
+    c=math.sqrt((Left[1]-Right[0])**2 +(Right[1]-Left[0])**2)
+    b=math.sqrt((Top[1]-Right[0])**2 +(Right[1]-Top[0])**2)
+    return math.degrees(math.acos((c**2 - b**2 - a**2)/(-2.0 * a * b)))
 
 
-print(getAngle((1849, 643), (1234, 1608), (2739, 1543)))
+
+print(getAngle((3,2),(0,0),(4,0)))
+
