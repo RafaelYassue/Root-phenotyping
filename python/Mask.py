@@ -2,7 +2,7 @@
 """
 Created on Mon Jun  8 22:39:03 2020
 
-Applyng mask and hull convex area 
+Applyng mask and saving it
 
 @author: Rafael Yassue
 

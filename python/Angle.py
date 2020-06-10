@@ -2,7 +2,9 @@
 """
 Created on Tue Jun  9 11:09:55 2020
 
-@author: rafae
+Calculating roots angle from images
+
+@author: Rafael Massahiro Yassue
 """
 
 import cv2

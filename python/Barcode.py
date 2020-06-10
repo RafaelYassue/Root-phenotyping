@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jun  9 11:09:55 2020
+
+Extrating barcode information and re-names the files
+
+@author: Rafael Massahiro Yassue
+"""
+
 from pyzbar.pyzbar import decode
 from PIL import Image
 import os as os 
