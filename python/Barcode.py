@@ -11,9 +11,11 @@ from pyzbar.pyzbar import decode
 from PIL import Image
 import os as os 
 import cv2 as cv2
+
+
 ################
 
-im_dir = ("C:\\Users\\rafae\\Desktop\\100NIKON - Copy")  
+im_dir = ("/home/rafaelyassue/Desktop/Roots/modificada")  
 os.chdir(im_dir)
 imgs = sorted(os.listdir(im_dir))
 
@@ -33,6 +35,18 @@ for i in range(len(plotid)):
     else: 
         plotid2.append(plotid[i][0].data)
 
+##Renomea fotos duplicadas
+renomear= []
+for i in range(len(plotid2)):
+    if plotid2[i]!=[] and plotid2[i]==plotid2[i-1]:
+       print("is duplicated", imgs[i], "or", plotid2[i], "or", i)
+       renomear.append(i)
+        i=2
+for i in renomear:
+    plotid2[i]=(str(plotid2[i])+".1")
+
+
+#####
 for i in range(1,len(plotid2)):
     if plotid2[i]==[]:
             print("no code")
