@@ -24,14 +24,9 @@ def getAngle(Top, Left, Right):
     c=math.sqrt((Left[1]-Right[1])**2 +(Right[0]-Left[0])**2) 
     b=math.sqrt((Top[1]-Right[1])**2 +(Right[0]-Top[0])**2) 
     return math.degrees(math.acos((c**2 - b**2 - a**2)/(-2.0 * a * b)))
-#Teste 
-print(getAngle((3,2),(1,1),(2,4))) #angulo reto
-print(getAngle((2,3.46410),(0,0),(4,0))) #Isoceles
 
-
-##
-trat = [] #saving treatment 
-Left = [] # Salving extremes points 
+trat = [] 
+Left = [] 
 Right = []
 Top = []
 Bot = []
@@ -57,37 +52,8 @@ for i in range(len(img_list)):
     Angle.append(getAngle(Top[i], Left[i],Right[i]))
     print(i)
 
-################ 10 cm
-trat = [] #saving treatment 
-Left = [] # Salving extremes points 
-Right = []
-Top = []
-Bot = []
-Angle10=[]
-
-i = 1
-for i in range(len(img_list)):
-    a = cv2.imread(img_list[i])
-    imA = a[100:1500, 600:3025] #Cropping image for 10 cm
-    lower_green = np.array([50,50,50])
-    upper_green = np.array([255,255,255])
-    hsv_imgA = cv2.cvtColor(imA, cv2.COLOR_BGR2HSV)
-    image = cv2.inRange(hsv_imgA, lower_green, upper_green)
-    image=np.invert(image)
-    trat.append(img_list[i])
-    cnts = cv2.findContours(image, cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
-    cnts = imutils.grab_contours(cnts)
-    c = max(cnts, key=cv2.contourArea)
-    Left.append(tuple(c[c[:, :, 0].argmin()][0])) #obtain extreme points 
-    Right.append(tuple(c[c[:, :, 0].argmax()][0]))
-    Top.append(tuple(c[c[:, :, 1].argmin()][0]))
-    Bot.append(tuple(c[c[:, :, 1].argmax()][0]))
-    Angle10.append(getAngle(Top[i], Left[i],Right[i]))
-    print(i)
-
 
 Angle_data = pd.DataFrame({'Angle_all':Angle, 'Angle_10': Angle10} ,trat)
-Angle_data.to_csv('Angle.csv')
 
 
 
