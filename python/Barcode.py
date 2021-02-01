@@ -35,7 +35,7 @@ for i in range(len(plotid)):
     else: 
         plotid2.append(plotid[i][0].data)
 
-##Renomea fotos duplicadas
+##Rename images
 renomear= []
 for i in range(len(plotid2)):
     if plotid2[i]!=[] and plotid2[i]==plotid2[i-1]:
