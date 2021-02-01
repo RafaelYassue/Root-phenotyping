@@ -32,7 +32,6 @@ Top = []
 Bot = []
 Angle=[]
 
-####Comprimento inteiro
 for i in range(len(img_list)):
     a = cv2.imread(img_list[i])
     imA = a[100:3000, 600:3025] #Cropping image 
