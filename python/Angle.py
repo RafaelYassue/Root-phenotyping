@@ -49,6 +49,14 @@ for i in range(len(img_list)):
     Top.append(tuple(c[c[:, :, 1].argmin()][0]))
     Bot.append(tuple(c[c[:, :, 1].argmax()][0]))
     Angle.append(getAngle(Top[i], Left[i],Right[i]))
+    cv2.circle(imA, (tuple(c[c[:, :, 0].argmin()][0])), 50, (100, 10, 55), -1)
+    cv2.circle(imA, (tuple(c[c[:, :, 0].argmax()][0])), 50, (100, 10, 55), -1)
+    cv2.circle(imA, (tuple(c[c[:, :, 1].argmin()][0])), 50, (100, 10, 55), -1)   
+    plt.imshow(imA, cmap=plt.cm.gray, interpolation='nearest')
+    plt.axis('off')
+    plt.savefig(img_list[i][:-5]+"hull.jpg", dpi=300)
+    plt.show()
+
     print(i)
 
 
